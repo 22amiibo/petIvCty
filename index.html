@@ -3,63 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petition Form</title>
+    <title>Astroturf Petition</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
             margin: 20px;
         }
-        .recipients {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
+        .petition-form {
+            max-width: 600px;
+            margin: auto;
+        }
+        .petition-form h1 {
+            text-align: center;
+        }
+        .petition-form textarea {
+            width: 100%;
+            height: 150px;
+        }
+        button {
+            width: 100%;
             padding: 10px;
-            margin-top: 20px;
-            font-size: 14px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <h1>Sign the Petition</h1>
-    <p>When you sign this petition, your message will be sent to the following officials:</p>
-    <div class="recipients">
-        Mayor Muriel Bowser<br>
-        DOEE Interim Director Richard Jackson<br>
-        Attorney General Brian Schwalb<br>
-        DC DLCP Interim Director Shirley Kwan-Hui<br>
-        Council Chairman Phil Mendelson<br>
-        At Large Councilmember Robert White<br>
-        At Large Councilmember Kenyan McDuffie<br>
-        At Large Councilmember Anita Bonds<br>
-        At Large Councilmember Christina Henderson<br>
-        Ward 1 Councilmember Brianne Nadeau<br>
-        Ward 2 Councilmember Brooke Pinto<br>
-        Ward 3 Councilmember Matt Frumin<br>
-        Ward 4 Councilmember Janese Lewis George<br>
-        Ward 5 Councilmember Zachary Parker<br>
-        Ward 6 Councilmember Charles Allen<br>
-        Ward 7 Councilmember Vince Gray<br>
-        Ward 8 Councilmember Trayon White
+    <div class="petition-form">
+        <h1>Sign the Petition</h1>
+        <p>Join us in sending an email to key officials in DC to take action!</p>
+        <form id="petitionForm">
+            <label for="firstName">First Name *</label><br>
+            <input type="text" id="firstName" name="firstName" required><br><br>
+            
+            <label for="lastName">Last Name *</label><br>
+            <input type="text" id="lastName" name="lastName" required><br><br>
+            
+            <label for="email">Email Address *</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="message">Message *</label><br>
+            <textarea id="message" name="message">
+Dear Mayor Muriel Bowser and DC Officials,
+
+I urge you to address the issue of environmental injustice caused by unsafe facilities in our community. It's time to prioritize the safety and health of residents in DC. Please take immediate action to rectify this situation.
+
+Sincerely,
+[Your Name]
+            </textarea><br><br>
+            
+            <button type="submit">Sign and Send</button>
+        </form>
     </div>
 
-    <form id="petitionForm">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required><br><br>
+    <script>
+        document.getElementById('petitionForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required><br><br>
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required><br><br>
+            const response = await fetch('send_emails.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
 
-        <label for="message">Message to Officials:</label><br>
-        <textarea id="message" name="message" rows="5" cols="50" required>
-I urge you to take immediate action regarding [your issue here]. This is critical for our community, and I request that you address it promptly.
-        </textarea><br><br>
-
-        <button type="submit">Sign the Petition</button>
-    </form>
-
-    <script src="script.js"></script>
+            const result = await response.json();
+            alert(result.message);
+        });
+    </script>
 </body>
 </html>
