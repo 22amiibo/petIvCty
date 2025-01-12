@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petition Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .recipients {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sign the Petition</h1>
+    <p>When you sign this petition, your message will be sent to the following officials:</p>
+    <div class="recipients">
+        Mayor Muriel Bowser<br>
+        DOEE Interim Director Richard Jackson<br>
+        Attorney General Brian Schwalb<br>
+        DC DLCP Interim Director Shirley Kwan-Hui<br>
+        Council Chairman Phil Mendelson<br>
+        At Large Councilmember Robert White<br>
+        At Large Councilmember Kenyan McDuffie<br>
+        At Large Councilmember Anita Bonds<br>
+        At Large Councilmember Christina Henderson<br>
+        Ward 1 Councilmember Brianne Nadeau<br>
+        Ward 2 Councilmember Brooke Pinto<br>
+        Ward 3 Councilmember Matt Frumin<br>
+        Ward 4 Councilmember Janese Lewis George<br>
+        Ward 5 Councilmember Zachary Parker<br>
+        Ward 6 Councilmember Charles Allen<br>
+        Ward 7 Councilmember Vince Gray<br>
+        Ward 8 Councilmember Trayon White
+    </div>
+
+    <form id="petitionForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message to Officials:</label><br>
+        <textarea id="message" name="message" rows="5" cols="50" required>
+I urge you to take immediate action regarding [your issue here]. This is critical for our community, and I request that you address it promptly.
+        </textarea><br><br>
+
+        <button type="submit">Sign the Petition</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
