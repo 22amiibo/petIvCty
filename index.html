@@ -1,282 +1,394 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Environmental Justice Amendment Act of 2023 Information Page">
-    <title>Environmental Justice Amendment Act of 2023</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #000;
-            --background-color: #fff;
-            --border-color: rgba(0, 0, 0, 0.1);
-            --shadow-color: rgba(0, 0, 0, 0.12);
-            --overlay-color: rgba(0, 0, 0, 0.6);
-            --light-bg-color: rgba(217, 217, 217, 0.5);
-            --tag-bg-color: rgba(0, 0, 0, 0.05);
-        }
+<style>
+.main-page {
+  background: rgba(172, 241, 255, 1);
+  display: flex;
+  padding: 80px 0 0;
+  flex-direction: column;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+.hero-section {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 40px 60px;
+  overflow: hidden;
+  justify-content: center;
+  padding: 60px 170px;
+}
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--primary-color);
-            background-color: var(--background-color);
-        }
+.hero-content {
+  align-self: stretch;
+  display: flex;
+  min-width: 240px;
+  flex-direction: column;
+  flex: 1;
+  margin: auto 0;
+}
 
-        .skip-link {
-            position: absolute;
-            left: -9999px;
-            z-index: 999;
-            padding: 1em;
-            background-color: var(--background-color);
-            color: var(--primary-color);
-            text-decoration: none;
-        }
+.hero-title {
+  font: 700 40px/48px Roboto, sans-serif;
+  color: #000;
+}
 
-        .skip-link:focus {
-            left: 50%;
-            transform: translateX(-50%);
-        }
+.hero-description {
+  font: 400 16px Roboto, sans-serif;
+  margin: 24px 0;
+  color: #000;
+}
 
-        .page-wrapper {
-            display: flex;
-            flex-direction: column;
-            padding: 0 68px;
-        }
+.cta-button {
+  display: flex;
+  width: 240px;
+  border-radius: 8px;
+  background: #000;
+  padding: 12px;
+  color: #fff;
+  font: 500 16px Roboto, sans-serif;
+  cursor: pointer;
+}
 
-        .main-content {
-            background-color: var(--background-color);
-            position: relative;
-            display: flex;
-            min-height: 100vh;
-            width: 100%;
-            padding-top: 80px;
-            flex-direction: column;
-            align-items: start;
-        }
+.hero-image-wrapper {
+  align-self: stretch;
+  min-width: 240px;
+  min-height: 400px;
+  flex: 1;
+  background: rgba(217, 217, 217, 0.5);
+}
 
-        .header-nav {
-            background-color: var(--background-color);
-            box-shadow: 0 0 6px var(--shadow-color);
-            position: fixed;
-            z-index: 10;
-            display: flex;
-            min-height: 80px;
-            width: 100%;
-            max-width: 1600px;
-            align-items: center;
-            gap: 20px;
-            justify-content: center;
-            padding: 0 20px;
-        }
+.about-section {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 170px;
+  font-family: Roboto, sans-serif;
+}
 
-        .nav-link {
-            color: var(--primary-color);
-            font: 400 16px Roboto, sans-serif;
-            text-decoration: none;
-            padding: 8px 16px;
-            transition: background-color 0.3s;
-        }
+.profile-avatar {
+  border-radius: 50px;
+  background: rgba(217, 217, 217, 0.5);
+  width: 100px;
+  height: 100px;
+  margin: auto 0;
+}
 
-        .nav-link:hover,
-        .nav-link:focus {
-            background-color: var(--tag-bg-color);
-            border-radius: 4px;
-        }
+.about-content {
+  flex: 1;
+  min-width: 240px;
+}
 
-        .hero-section {
-            background-color: var(--overlay-color);
-            width: 100%;
-            padding: 60px 170px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-            text-align: center;
-            margin-bottom: 60px;
-        }
+.about-title {
+  font: 700 24px/1 Roboto, sans-serif;
+  color: #000;
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
+.about-description {
+  font: 400 16px Roboto, sans-serif;
+  margin-top: 12px;
+  color: #000;
+}
 
-        .hero-title {
-            color: var(--background-color);
-            font-size: 40px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 24px;
-        }
+.read-more-button {
+  width: 160px;
+  border-radius: 8px;
+  background: #000;
+  padding: 12px;
+  color: #fff;
+  font: 500 16px Roboto, sans-serif;
+  cursor: pointer;
+}
 
-        .hero-description {
-            color: var(--background-color);
-            font-size: 20px;
-            font-weight: 300;
-            line-height: 1.5;
-        }
+.details-section {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+  padding: 60px 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-        .section {
-            padding: 60px 0;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.details-header {
+  text-align: center;
+  max-width: 520px;
+}
 
-        .section-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
-        }
+.details-title {
+  font: 700 40px/1.2 Roboto, sans-serif;
+  color: #000;
+}
 
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px;
-        }
+.details-description {
+  font: 400 16px/24px Roboto, sans-serif;
+  margin-top: 24px;
+  color: #000;
+}
 
-        .card {
-            background: var(--background-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px var(--shadow-color);
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
+.details-grid {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+  width: 100%;
+  flex-wrap: wrap;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.details-card {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
 
-        .card-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: var(--light-bg-color);
-        }
+.card-image {
+  width: 100px;
+  height: 100px;
+  background: rgba(217, 217, 217, 0.5);
+}
 
-        .card-content {
-            padding: 20px;
-        }
+.card-content {
+  flex: 1;
+  min-width: 240px;
+}
 
-        .card-title {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
+.card-title {
+  font: 500 20px/1.4 Roboto, sans-serif;
+  color: #000;
+}
 
-        .card-text {
-            font-size: 16px;
-            color: #666;
-        }
+.card-description {
+  font: 400 16px Roboto, sans-serif;
+  margin-top: 8px;
+  color: #000;
+}
 
-        .tag {
-            display: inline-block;
-            padding: 4px 8px;
-            background-color: var(--tag-bg-color);
-            border-radius: 4px;
-            font-size: 12px;
-            margin-top: 10px;
-        }
+.metrics-section {
+  position: relative;
+  padding: 60px 170px;
+  font-family: Roboto, sans-serif;
+}
 
-        @media (max-width: 991px) {
-            .page-wrapper {
-                padding: 0 20px;
-            }
+.metrics-header {
+  text-align: center;
+}
 
-            .hero-section {
-                padding: 40px 20px;
-            }
+.metrics-title {
+  font: 700 40px/48px Roboto, sans-serif;
+  color: #000;
+}
 
-            .hero-title {
-                font-size: 32px;
-            }
+.metrics-description {
+  font: 400 16px Roboto, sans-serif;
+  margin-top: 24px;
+  color: #000;
+}
 
-            .hero-description {
-                font-size: 18px;
-            }
+.metrics-grid {
+  display: flex;
+  gap: 20px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
 
-            .section {
-                padding: 40px 20px;
-            }
+.metric-card {
+  flex: 1;
+  min-width: 240px;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  font: 400 16px Roboto, sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+}
 
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+.contact-section {
+  position: relative;
+  padding: 60px 170px;
+  display: flex;
+  gap: 40px 60px;
+}
 
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <div class="page-wrapper">
-        <header>
-            <nav class="header-nav" role="navigation" aria-label="Main navigation">
-                <a href="#" class="nav-link">Home</a>
-                <a href="#" class="nav-link">Contact</a>
-            </nav>
-        </header>
+.contact-content {
+  flex: 1;
+  min-width: 240px;
+}
 
-        <main id="main-content">
-            <section class="hero-section" aria-labelledby="hero-title">
-                <div class="hero-content">
-                    <h1 id="hero-title" class="hero-title">The Environmental Justice Amendment Act of 2023</h1>
-                    <p class="hero-description">To amend the District of Columbia Environmental Policy Act of 1989</p>
-                </div>
-            </section>
+.contact-title {
+  font: 700 40px/1.2 Roboto, sans-serif;
+  color: #000;
+}
 
-            <section class="section" aria-labelledby="bill-features">
-                <h2 id="bill-features" class="section-title">What Bill (25-564) Will Do</h2>
-                <div class="card-grid">
-                    <article class="card">
-                        <div class="card-image" role="img" aria-label="Health icon"></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Amend</h3>
-                            <p class="card-text">Better access and quality care</p>
-                            <span class="tag">Health</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <div class="card-image" role="img" aria-label="Environment icon"></div>
-                        <div class="card-content">
-                            <h3 class="card-title">Environment Conservation</h3>
-                            <p class="card-text">Reduce carbon emissions</p>
-                            <span class="tag">Environment</span>
-                        </div>
-                    </article>
-                </div>
-            </section>
+.contact-description {
+  font: 400 16px Roboto, sans-serif;
+  margin-top: 24px;
+  color: #000;
+}
 
-            <section class="section" aria-labelledby="bill-benefits">
-                <h2 id="bill-benefits" class="section-title">Benefits of the Bill</h2>
-                <div class="card-grid">
-                    <article class="card">
-                        <div class="card-content">
-                            <p class="card-text">By enforcing accountability through penalties and legal actions, establishes a dedicated Environmental Justice Division within the DOEE, and prioritizes transparency and public participation in decision-making. Its ultimate goal is to prevent harmful projects from disproportionately impacting overburdened communities unless appropriate steps are taken to mitigate or offset those impacts.</p>
-                            <span class="tag">Summary</span>
-                        </div>
-                    </article>
-                </div>
-            </section>
-        </main>
+.contact-form {
+  flex: 1;
+  min-width: 240px;
+}
+
+.form-group {
+  margin-bottom: 40px;
+}
+
+.form-label {
+  display: block;
+  font: 500 14px/1 Roboto, sans-serif;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  font: 400 14px Roboto, sans-serif;
+}
+
+.form-helper {
+  font: 400 12px/1 Roboto, sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 4px;
+}
+
+.submit-button {
+  width: 240px;
+  border-radius: 8px;
+  background: #000;
+  padding: 12px;
+  color: #fff;
+  font: 500 16px Roboto, sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 991px) {
+  .hero-section,
+  .about-section,
+  .details-section,
+  .metrics-section,
+  .contact-section {
+    padding: 40px 20px;
+  }
+  
+  .hero-content,
+  .about-content,
+  .details-header,
+  .details-card,
+  .contact-content,
+  .contact-form {
+    max-width: 100%;
+  }
+  
+  .details-description {
+    margin-top: 20px;
+  }
+  
+  .details-grid {
+    margin-top: 40px;
+  }
+  
+  .metrics-grid {
+    margin-top: 40px;
+  }
+}
+</style>
+
+<div class="main-page">
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to Environmental Justice in Ivy City</h1>
+      <p class="hero-description">Spreading awareness about NEP Building and environmental injustices in Ivy City</p>
+      <button class="cta-button" type="button">Learn More</button>
     </div>
-</body>
-</html>
+    <div class="hero-image-wrapper">
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c78efd5060bc52a61aa8ce5f151123eea232f62273efce4bac88d236e27feb31?placeholderIfAbsent=true&apiKey=8a32ab803e104c83a652e11096fcdb7b" alt="Environmental justice initiative in Ivy City" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="profile-avatar" role="img" aria-label="Profile avatar"></div>
+    <div class="about-content">
+      <h2 class="about-title">About Ivy City</h2>
+      <p class="about-description">Learn about the history and demographics of Ivy City</p>
+    </div>
+    <button class="read-more-button" type="button">Read More</button>
+  </section>
+
+  <section class="details-section">
+    <div class="details-header">
+      <h2 class="details-title">NEP Building Details</h2>
+      <p class="details-description">Explore the harmful chemicals and health impacts associated with the NEP Building</p>
+    </div>
+    
+    <div class="details-grid">
+      <article class="details-card">
+        <div class="card-image" role="img" aria-label="Chemical hazards illustration"></div>
+        <div class="card-content">
+          <h3 class="card-title">Chemical Hazards</h3>
+          <p class="card-description">Information on the toxic substances present in the NEP Building</p>
+        </div>
+      </article>
+      
+      <article class="details-card">
+        <div class="card-image" role="img" aria-label="Health impact illustration"></div>
+        <div class="card-content">
+          <h3 class="card-title">Health Impact</h3>
+          <p class="card-description">Discussing the health implications for the community</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="metrics-section">
+    <div class="metrics-header">
+      <h2 class="metrics-title">Environmental Injustice Overview</h2>
+      <p class="metrics-description">Understanding the broader environmental issues in Washington, D.C.</p>
+    </div>
+    
+    <div class="metrics-grid">
+      <div class="metric-card">Pollution Levels</div>
+      <div class="metric-card">Affected Communities</div>
+      <div class="metric-card">Advocacy Efforts</div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-content">
+      <h2 class="contact-title">Take Action Against the NEP Building</h2>
+      <p class="contact-description">Join us in fighting for environmental justice</p>
+    </div>
+
+    <form class="contact-form">
+      <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-input" placeholder="Enter your name" required />
+        <p class="form-helper">Your name will not be shared</p>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-input" placeholder="Enter your email" required />
+        <p class="form-helper">We'll keep you updated</p>
+      </div>
+
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </section>
+</div>
