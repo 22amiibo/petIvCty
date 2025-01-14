@@ -61,7 +61,7 @@ industrial-grade sealants for military and other contracts, utilizing chemicals 
 system, and Toluene, a highly flammable chemical that increases fire and explosion risks. Community-wide testing has revealed alarmingly high levels of these hazardous substances. Shockingly, NEP has operated with little to no oversight. The plant lacks an Air Quality 
 permit and has only had a Certificate of Occupancy dating back to 1971. Despite being aware of the facility's noncompliance, DC’s Department of Energy and Environment has failed to take meaningful action to shut it down. But compliance isn’t enough—we are demanding the 
 full closure and removal of this facility from Ivy City. There is absolutely no excuse for allowing a plant that uses such dangerous chemicals to operate in the middle of a residential area. The laws and standards have changed to protect communities, yet NEP continues to 
-operate as though it’s exempt from accountability. This facility doesn’t belong in Ivy City or any other neighborhood.We urge decision-makers to take immediate and decisive action. It’s time to permanently shut down National Engineering Products and remove it from Ivy 
+operate as though it’s exempt from accountability. This facility doesn’t belong in Ivy City or any other neighborhood. We urge decision-makers to take immediate and decisive action. It’s time to permanently shut down National Engineering Products and remove it from Ivy 
 City—for good. This community deserves better.        </textarea><br><br>
 
         <button type="submit">Sign the Petition</button>
@@ -75,11 +75,10 @@ City—for good. This community deserves better.        </textarea><br><br>
             
             // Collect form data
             const formData = new FormData(this);
-            const payload = {
-                firstName: formData.get('firstName').trim(),
-                lastName: formData.get('lastName').trim(),
-                email: formData.get('email').trim(),
-                message: formData.get('message').trim()
+            const payload = {{
+    "content": "**New Petition Signature:**\n**Name:** John Doe\n**Email:** john.doe@example.com\n**Message:** This is my message."
+}
+
             };
 
             try {
