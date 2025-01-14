@@ -75,33 +75,28 @@ City—for good. This community deserves better.        </textarea><br><br>
             
             // Collect form data
             const formData = new FormData(this);
-           const payload = {
-                firstName: formData.get('firstName').trim(),
-                lastName: formData.get('lastName').trim(),
-                email: formData.get('email').trim(),
-                message: formData.get('message').trim()
-            };
+              const payload = {
+        firstName: formData.get('firstName').trim(),
+        lastName: formData.get('lastName').trim(),
+        email: formData.get('email').trim(),
+        message: formData.get('message').trim()
+    };
+    
+    try {
+        // Send the form data to the webhook
+        const response = await fetch(webhookURL + `?firstName=${encodeURIComponent(payload.firstName)}&lastName=${encodeURIComponent(payload.lastName)}&email=${encodeURIComponent(payload.email)}&message=${encodeURIComponent(payload.message)}`);
+    
+        if (response.ok) {
+            alert('Thank you for signing the petition!');
+            this.reset(); // Reset the form
+        } else {
+            alert('There was an error submitting your signature. Please try again later.');
+        }
+    } catch (error) {
+        console.error('Error submitting petition:', error);
+        alert('There was an error submitting your signature. Please try again later.');
+    }
 
-            try {
-                // Send the form data to the webhook
-                const response = await fetch(webhookURL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        content: `**New Petition Signature:**\n**Name:** ${payload.firstName} ${payload.lastName}\n**Email:** ${payload.email}\n**Message:**\n${payload.message}`
-                    })
-                });
-
-                if (response.ok) {
-                    alert('Thank you for signing the petition!');
-                    this.reset(); // Reset the form
-                } else {
-                    alert('There was an error submitting your signature. Please try again later.');
-                }
-            } catch (error) {
-                console.error('Error submitting petition:', error);
-                alert('There was an error submitting your signature. Please try again later.');
-            }
         });
     </script>
 </body>
