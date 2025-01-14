@@ -75,11 +75,12 @@ City—for good. This community deserves better.        </textarea><br><br>
             
             // Collect form data
             const formData = new FormData(this);
-            const payload = {
-    "content": "**New Petition Signature:**\n**Name:** John Doe\n**Email:** john.doe@example.com\n**Message:** This is my message."
-}
-
-            };
+           const payload = {
+    firstName: encodeURIComponent(formData.get('firstName').trim()),
+    lastName: encodeURIComponent(formData.get('lastName').trim()),
+    email: encodeURIComponent(formData.get('email').trim()),
+    message: encodeURIComponent(formData.get('message').trim())
+};
 
             try {
                 // Send the form data to the webhook
