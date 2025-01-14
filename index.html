@@ -1,455 +1,242 @@
-<style>
-.hero-section {
-  background-color: rgba(172, 241, 255, 1);
-  display: flex;
-  padding: 80px 0 0;
-  flex-direction: column;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Justice in Ivy City</title>
+    <style>
+        :root {
+            --primary-color: #000;
+            --background-color: rgba(172, 241, 255, 1);
+            --text-color: #000;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --font-family: 'Roboto', sans-serif;
+        }
 
-.welcome-section {
-  position: relative;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 40px 60px;
-  overflow: hidden;
-  justify-content: center;
-  padding: 60px 170px;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.content-wrapper {
-  align-self: stretch;
-  z-index: 1;
-  display: flex;
-  min-width: 240px;
-  flex-direction: column;
-  flex: 1;
-  margin: auto 0;
-}
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+        }
 
-.main-title {
-  font: 700 40px/48px Roboto, sans-serif;
-  color: #000;
-}
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.main-description {
-  font: 400 16px Roboto, sans-serif;
-  color: #000;
-  margin: 24px 0;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-.cta-button {
-  display: flex;
-  width: 240px;
-  border-radius: 8px;
-  background-color: #000;
-  color: #fff;
-  font: 500 16px Roboto, sans-serif;
-  padding: 12px;
-  border: none;
-  cursor: pointer;
-}
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
 
-.hero-image {
-  align-self: stretch;
-  z-index: 1;
-  min-width: 240px;
-  min-height: 400px;
-  flex: 1;
-  margin: auto 0;
-}
+        nav a:hover {
+            background: #333;
+        }
 
-.about-section {
-  position: relative;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 40px;
-  overflow: hidden;
-  padding: 60px 170px;
-}
+        .hero-section {
+            background-color: var(--background-color);
+            padding: 80px 0;
+        }
 
-.about-content {
-  align-self: stretch;
-  z-index: 1;
-  display: flex;
-  min-width: 240px;
-  flex-direction: column;
-  flex: 1;
-  margin: auto 0;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.about-title {
-  font: 700 24px/1 Roboto, sans-serif;
-  color: #000;
-}
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
 
-.about-description {
-  font: 400 16px Roboto, sans-serif;
-  color: #000;
-  margin-top: 12px;
-}
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            color: var(--text-color);
+        }
 
-.nep-details {
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  position: relative;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 60px 170px 76px;
-}
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
 
-.details-header {
-  z-index: 1;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
 
-.details-title {
-  font: 700 40px/1.2 Roboto, sans-serif;
-  color: #000;
-}
+        .section {
+            padding: 80px 0;
+        }
 
-.details-description {
-  font: 400 16px/24px Roboto, sans-serif;
-  color: #000;
-  margin-top: 24px;
-  width: 520px;
-}
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-.details-grid {
-  z-index: 1;
-  display: flex;
-  margin-top: 60px;
-  width: 100%;
-  flex-direction: column;
-  padding: 20px 0;
-}
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
 
-.grid-row {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
+        .section-header p {
+            font-size: 18px;
+            color: #666;
+        }
 
-.info-card {
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  display: flex;
-  min-width: 240px;
-  align-items: start;
-  gap: 16px;
-  flex: 1;
-  margin: auto 0;
-  padding: 16px;
-}
+        .button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
 
-.card-image {
-  width: 100px;
-  min-height: 100px;
-  overflow: hidden;
-}
+        .button:hover {
+            background-color: #333;
+        }
 
-.card-content {
-  display: flex;
-  min-width: 240px;
-  flex-direction: column;
-  flex: 1;
-}
+        .centered-button {
+            text-align: center;
+            margin-top: 40px;
+        }
 
-.card-title {
-  font: 500 20px/1.4 Roboto, sans-serif;
-  color: #000;
-}
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
 
-.card-subtitle {
-  font: 400 16px Roboto, sans-serif;
-  color: #000;
-  margin-top: 8px;
-}
+        .info-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-.action-button {
-  display: flex;
-  margin: 60px auto 0;
-  width: 160px;
-  border-radius: 8px;
-  background-color: #000;
-  color: #fff;
-  font: 500 16px Roboto, sans-serif;
-  padding: 12px;
-  text-align: center;
-  text-decoration: none;
-}
+        .info-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
 
-.metrics-section {
-  position: relative;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 60px 170px;
-}
+        .info-card p {
+            color: #666;
+            margin-bottom: 24px;
+        }
 
-.metrics-header {
-  z-index: 1;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 40px 60px;
-  text-align: center;
-  justify-content: center;
-}
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
 
-.metrics-title {
-  font: 700 40px/48px Roboto, sans-serif;
-  color: #000;
-  width: 520px;
-}
+            .hero-text h1 {
+                font-size: 36px;
+            }
 
-.metrics-description {
-  font: 400 16px Roboto, sans-serif;
-  color: #000;
-  margin-top: 24px;
-}
+            .section {
+                padding: 60px 0;
+            }
 
-.metrics-grid {
-  z-index: 1;
-  display: flex;
-  margin-top: 60px;
-  min-height: 80px;
-  width: 100%;
-  flex-direction: column;
-}
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#hero-section">Home</a>
+            <a href="#nep-building-impact">NEP Building Impact</a>
+            <a href="#amendment-section">Amendment Act</a>
+            <a href="#take-action">Take Action</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section" id="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Environmental Justice in Ivy City</h1>
+                        <p>Join our mission to address environmental injustices and create positive change in the Ivy City community.</p>
+                        <a href="#nep-building-impact" class="button">Learn More</a>
+                    </div>
+                    <img src="/images/ivy-city.jpg" alt="Aerial view of Ivy City" class="hero-image">
+                </div>
+            </div>
+        </section>
 
-.metrics-row {
-  display: flex;
-  height: 72px;
-  width: 100%;
-  align-items: start;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+        <section class="section" id="nep-building-impact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>NEP Building Impact</h2>
+                    <p>Understanding the environmental and health challenges facing our community</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Chemical Hazards</h3>
+                        <p>Learn about the toxic substances present and their environmental impact.</p>
+                        <a href="#amendment-section" class="button">Read More</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>Health Implications</h3>
+                        <p>Discover how these environmental issues affect community health.</p>
+                        <a href="#amendment-section" class="button">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-.metric-item {
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  min-width: 240px;
-  padding: 16px;
-  flex: 1;
-  font: 400 16px Roboto, sans-serif;
-  color: rgba(0, 0, 0, 0.5);
-}
+        <section class="section amendment-section" id="amendment-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Environmental Justice Amendment Act of 2023</h2>
+                    <p>A crucial step towards protecting communities from environmental harm and ensuring equitable environmental standards.</p>
+                    <div class="centered-button">
+                        <a href="#take-action" class="button">View Amendment Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-.contact-form {
-  position: relative;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 40px 60px;
-  overflow: hidden;
-  padding: 60px 170px;
-}
-
-.form-container {
-  align-self: stretch;
-  z-index: 1;
-  display: flex;
-  min-width: 240px;
-  flex-direction: column;
-  flex: 1;
-  margin: auto 0;
-}
-
-.form-title {
-  font: 700 40px/1.2 Roboto, sans-serif;
-  color: #000;
-}
-
-.form-description {
-  font: 400 16px Roboto, sans-serif;
-  color: #000;
-  margin-top: 24px;
-}
-
-.form-group {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  margin-top: 40px;
-}
-
-.form-label {
-  font: 500 14px/1 Roboto, sans-serif;
-  color: #000;
-}
-
-.form-input {
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  padding: 8px 12px;
-  margin: 4px 0;
-  width: 100%;
-  font: 400 14px Roboto, sans-serif;
-}
-
-.form-hint {
-  font: 400 12px/1 Roboto, sans-serif;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.submit-button {
-  display: flex;
-  margin-top: 40px;
-  width: 240px;
-  border-radius: 8px;
-  background-color: #000;
-  color: #fff;
-  font: 500 16px Roboto, sans-serif;
-  padding: 12px;
-  border: none;
-  cursor: pointer;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-@media (max-width: 991px) {
-  .welcome-section,
-  .about-section,
-  .nep-details,
-  .metrics-section,
-  .contact-form {
-    padding: 0 20px;
-  }
-
-  .content-wrapper,
-  .about-content,
-  .details-description,
-  .info-card,
-  .metrics-title,
-  .form-container {
-    max-width: 100%;
-  }
-
-  .details-grid {
-    margin-top: 40px;
-  }
-
-  .action-button {
-    margin-top: 40px;
-  }
-
-  .metrics-grid {
-    margin-top: 40px;
-  }
-}
-</style>
-
-<main class="hero-section">
-  <section class="welcome-section">
-    <div class="content-wrapper">
-      <h1 class="main-title">Welcome to Environmental Justice in Ivy City</h1>
-      <p class="main-description">Spreading awareness about NEP Building and environmental injustices in Ivy City</p>
-      <button class="cta-button">Learn More</button>
-    </div>
-    <div class="hero-image">
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c78efd5060bc52a61aa8ce5f151123eea232f62273efce4bac88d236e27feb31?placeholderIfAbsent=true&apiKey=8a32ab803e104c83a652e11096fcdb7b" alt="Ivy City Environmental Justice Initiative" loading="lazy" />
-    </div>
-  </section>
-
-  <section class="about-section">
-    <div class="about-content">
-      <h2 class="about-title">About Ivy City</h2>
-      <p class="about-description">Learn about the history and demographics of Ivy City</p>
-    </div>
-    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c78efd5060bc52a61aa8ce5f151123eea232f62273efce4bac88d236e27feb31?placeholderIfAbsent=true&apiKey=8a32ab803e104c83a652e11096fcdb7b" alt="Ivy City Community" loading="lazy" />
-  </section>
-
-  <section class="nep-details">
-    <div class="details-header">
-      <h2 class="details-title">NEP Building Details</h2>
-      <p class="details-description">Explore the harmful chemicals and health impacts associated with the NEP Building</p>
-    </div>
-    
-    <div class="details-grid">
-      <div class="grid-row">
-        <article class="info-card">
-          <div class="card-image">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c78efd5060bc52a61aa8ce5f151123eea232f62273efce4bac88d236e27feb31?placeholderIfAbsent=true&apiKey=8a32ab803e104c83a652e11096fcdb7b" alt="Chemical Hazards Diagram" loading="lazy" />
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Chemical Hazards</h3>
-            <p class="card-subtitle">Information on the toxic substances present in the NEP Building</p>
-          </div>
-        </article>
-        
-        <article class="info-card">
-          <div class="card-image">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c78efd5060bc52a61aa8ce5f151123eea232f62273efce4bac88d236e27feb31?placeholderIfAbsent=true&apiKey=8a32ab803e104c83a652e11096fcdb7b" alt="Health Impact Analysis" loading="lazy" />
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Health Impact</h3>
-            <p class="card-subtitle">Discussing the health implications for the community</p>
-          </div>
-        </article>
-      </div>
-    </div>
-    
-    <a href="bill-page.html" class="action-button">Read More</a>
-  </section>
-
-  <section class="metrics-section">
-    <div class="metrics-header">
-      <div class="metrics-content">
-        <h2 class="metrics-title">Environmental Injustice Overview</h2>
-        <p class="metrics-description">Understanding the broader environmental issues in Washington, D.C.</p>
-      </div>
-    </div>
-
-    <div class="metrics-grid">
-      <div class="metrics-row">
-        <div class="metric-item" role="region" aria-label="Pollution Levels">Pollution Levels</div>
-        <div class="metric-item" role="region" aria-label="Affected Communities">Affected Communities</div>
-        <div class="metric-item" role="region" aria-label="Advocacy Efforts">Advocacy Efforts</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-form">
-    <form class="form-container">
-      <a href="tester.html">
-      <h2 class="form-title">Take Action Against the NEP Building</h2>
-         </a>
-      <p class="form-description">Join us in fighting for environmental justice</p>
-     
-      <div class="form-group">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" id="name" class="form-input" placeholder="Enter your name" required />
-        <span class="form-hint">Your name will not be shared</span>
-      </div>
-
-      <div class="form-group">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" class="form-input" placeholder="Enter your email" required />
-        <span class="form-hint">We'll keep you updated</span>
-      </div>
-
-      <button type="submit" class="submit-button">Submit</button>
-    </form>
-  </section>
-</main>
+        <section class="section" id="take-action">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Take Action</h2>
+                    <p>Join our effort to create positive environmental change in Ivy City</p>
+                </div>
+                <div class="centered-button">
+                    <a href="#hero-section" class="button">Get Involved Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
