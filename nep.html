@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEP Building Awareness</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --background-color: #f4f9fc;
+            --text-color: #333;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --font-family: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background: #34495e;
+        }
+
+        .hero-section {
+            background-color: var(--background-color);
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            color: var(--text-color);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #34495e;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .info-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .info-card p {
+            color: #666;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#hero-section">Home</a>
+            <a href="#nep-dangers">Dangers</a>
+            <a href="#community-actions">Actions</a>
+            <a href="#resources">Resources</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section" id="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>NEP Building Dangers</h1>
+                        <p>Learn about the hazardous impacts of the NEP facility in Ivy City and how it affects our community.</p>
+                        <a href="#nep-dangers" class="button">Learn More</a>
+                    </div>
+                    <img src="/images/nep-building.jpg" alt="NEP Building in Ivy City" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="nep-dangers">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Environmental and Health Dangers</h2>
+                    <p>Understanding the risks associated with the NEP building in Ivy City.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Chemical Hazards</h3>
+                        <p>The NEP facility emits toxic chemicals like formaldehyde and methylene chloride, posing severe health risks.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Community Impact</h3>
+                        <p>Residents report respiratory issues and other health conditions linked to NEP's emissions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="community-actions">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Community Action</h2>
+                    <p>Discover how the Ivy City community is fighting back and advocating for change.</p>
+                </div>
+                <div class="centered-button">
+                    <a href="#resources" class="button">Get Involved</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="resources">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Resources</h2>
+                    <p>Access tools and information to support environmental justice in Ivy City.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
