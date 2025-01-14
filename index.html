@@ -227,6 +227,29 @@
         </section>
 
         <section class="section" id="take-action">
+        <section class="section" id="submit-signature">
+    <div class="container">
+        <div class="section-header">
+            <h2>Sign the Petition</h2>
+            <p>Submit your name, email, and message to show your support for environmental justice in Ivy City.</p>
+        </div>
+        <form id="petitionForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea><br><br>
+
+            <button type="submit" class="button">Submit Petition</button>
+        </form>
+    </div>
+</section>
             <div class="container">
                 <div class="section-header">
                     <h2>Take Action</h2>
@@ -238,5 +261,42 @@
             </div>
         </section>
     </main>
+<script>
+    document.getElementById('petitionForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from submitting the default way
+
+        // Gather the form data
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Prepare the payload for the Discord webhook
+        const payload = {
+            content: `**New Petition Signature:**\n**Name:** ${firstName} ${lastName}\n**Email:** ${email}\n**Message:**\n${message}`
+        };
+
+        // Send the data to the webhook URL
+        fetch('https://discord.com/api/webhooks/1071523420279414824/sgknidLgYePg58U2lwlXrsHcg7vXy-laUJ8XRoPVpYiTUc1adERBrSjNoJLHJzD8fg9g', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Thank you for signing the petition!');
+            } else {
+                alert('Failed to submit the petition. Please try again later.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again later.');
+        });
+    });
+</script>
+
 </body>
 </html>
