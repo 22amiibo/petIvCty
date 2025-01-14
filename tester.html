@@ -71,16 +71,16 @@ City—for good. This community deserves better.        </textarea><br><br>
         document.getElementById('petitionForm').addEventListener('submit', async function(e) {
             e.preventDefault(); // Prevent the default form submission
 
-            const webhookURL = "https://discord.com/api/webhooks/1071523420279414824/sgknidLgYePg58U2lwlXrsHcg7vXy-laUJ8XRoPVpYiTUc1adERBrSjNoJLHJzD8fg9g";
+            const webhookURL = "https://discord.com/api/webhooks/1328565183148195930/tZx3iJ3-dGdKlpY2uvSA9nkvBcbVmfg1NTWAMhYTlWhASAQuOrnqQgLyUzY_kXnxOPmY";
             
             // Collect form data
             const formData = new FormData(this);
            const payload = {
-    firstName: encodeURIComponent(formData.get('firstName').trim()),
-    lastName: encodeURIComponent(formData.get('lastName').trim()),
-    email: encodeURIComponent(formData.get('email').trim()),
-    message: encodeURIComponent(formData.get('message').trim())
-};
+                firstName: formData.get('firstName').trim(),
+                lastName: formData.get('lastName').trim(),
+                email: formData.get('email').trim(),
+                message: formData.get('message').trim()
+            };
 
             try {
                 // Send the form data to the webhook
