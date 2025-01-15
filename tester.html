@@ -49,8 +49,8 @@
         <label for="lastName">Last Name:</label>
         <input type="text" id="lastName" name="lastName" required><br><br>
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <label for="email">Email Address *optional*:</label>
+        <input type="email" id="email" name="email" ><br><br> 
 
         <label for="message">Message to Officials:</label><br>
         <textarea id="message" name="message" rows="5" cols="50" required>
@@ -61,9 +61,22 @@ industrial-grade sealants for military and other contracts, utilizing chemicals 
 system, and Toluene, a highly flammable chemical that increases fire and explosion risks. Community-wide testing has revealed alarmingly high levels of these hazardous substances. Shockingly, NEP has operated with little to no oversight. The plant lacks an Air Quality 
 permit and has only had a Certificate of Occupancy dating back to 1971. Despite being aware of the facility's noncompliance, DC’s Department of Energy and Environment has failed to take meaningful action to shut it down. But compliance isn’t enough—we are demanding the 
 full closure and removal of this facility from Ivy City. There is absolutely no excuse for allowing a plant that uses such dangerous chemicals to operate in the middle of a residential area. The laws and standards have changed to protect communities, yet NEP continues to 
-operate as though it’s exempt from accountability. This facility doesn’t belong in Ivy City or any other neighborhood.We urge decision-makers to take immediate and decisive action. It’s time to permanently shut down National Engineering Products and remove it from Ivy 
-City—for good. This community deserves better.        </textarea><br><br>
+operate as though it’s exempt from accountability. This facility doesn’t belong in Ivy City or any other neighborhood. We urge decision-makers to take immediate and decisive action. It’s time to permanently shut down National Engineering Products and remove it from Ivy 
+City—for good. This community deserves better.        
+        </textarea><br><br>
 
+        <!-- Consent -->
+        <label>
+            <input type="checkbox" id="messageConsent" required>
+            I consent that my message will be sent to the officials listed above.
+        </label><br><br>
+
+        <!-- Consent -->
+        <label>
+            <input type="checkbox" id="nameConsent" required>
+            I consent to my signature being used when sent to officials listed above.
+        </label><br><br>
+        <p style="font-size: 12px;">*No data will be stored*</p>
         <button type="submit">Sign the Petition</button>
     </form>
 
@@ -71,7 +84,13 @@ City—for good. This community deserves better.        </textarea><br><br>
         document.getElementById('petitionForm').addEventListener('submit', async function(e) {
             e.preventDefault(); // Prevent the default form submission
 
-            const webhookURL = "https://discord.com/api/webhooks/1071523420279414824/sgknidLgYePg58U2lwlXrsHcg7vXy-laUJ8XRoPVpYiTUc1adERBrSjNoJLHJzD8fg9g";
+            // Check if the checkboxes are checked
+            if (!document.getElementById('messageConsent').checked || !document.getElementById('nameConsent').checked) {
+                alert('You must consent to both the message and name usage to sign the petition.');
+                return;
+            }
+
+            const webhookURL = "https://discord.com/api/webhooks/1328565183148195930/tZx3iJ3-dGdKlpY2uvSA9nkvBcbVmfg1NTWAMhYTlWhASAQuOrnqQgLyUzY_kXnxOPmY";
             
             // Collect form data
             const formData = new FormData(this);
