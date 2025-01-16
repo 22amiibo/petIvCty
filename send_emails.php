@@ -9,7 +9,7 @@ if (!isset($data['firstName'], $data['lastName'], $data['email'], $data['message
     exit;
 }
 
-// Define recipients
+// Define recipients NOT VALID DONT USE PHP
 $recipients = [
     'mbowser@dc.gov',  // Mayor Muriel Bowser
     'richard.jackson@doee.dc.gov',  // DOEE Interim Director Richard Jackson
